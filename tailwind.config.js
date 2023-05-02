@@ -8,14 +8,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
-        'robotoc': ['Roboto Condensed', 'sans-serif']
+        'main': ['Poppins', 'sans-serif'],
+        'condensed': ['Roboto Condensed', 'sans-serif']
       },
       colors: {
-        "brown": 
-        {
-          "500": "#b87440",
-        },
+        "brown": "#b87440",
     },
     },
   },
