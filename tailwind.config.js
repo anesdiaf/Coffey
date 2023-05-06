@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-
+const { fontFamily } = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -7,13 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        'main': ['Poppins', 'sans-serif'],
-        'condensed': ['Roboto Condensed', 'sans-serif']
+      fontFamily:{
+        sans: ['var(--font-inter)', fontFamily.sans]
       },
       colors: {
         "brown": "#b87440",
-    },
+      },
+      borderRadius: {
+        "4xl": "2.5rem"
+      }
     },
   },
   plugins: [],
