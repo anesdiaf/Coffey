@@ -26,7 +26,6 @@ export default function Home(props) {
           {coffeeStores.map((store) => (
             <Card store={store} key={store.id}/>
           ) )}
-
         </div>
 
       </section>
