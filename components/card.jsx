@@ -23,11 +23,11 @@ function Card({ store }) {
         <div className="px-2 py-3.5 flex flex-col gap-y-3">
           <h2 className="text-2xl font-semibold">{title}</h2>
           <div className="flex flex-col gap-y-2">
-            <div className="text-zinc-400/80 inline-flex gap-x-2 items-center">
-              <MapPin className="text-white" size={20} /> <p>{address}</p>
+            <div className="text-zinc-300/80 inline-flex gap-x-2 items-center">
+              <MapPin className="text-brown" size={20} /> <p>{address}</p>
             </div>
-            <div className="text-zinc-400/80 inline-flex gap-x-2 items-center">
-              <Star className="text-white" size={20} /> <p>{stars}</p>
+            <div className="text-zinc-300/80 inline-flex gap-x-2 items-center">
+              <Star className="text-brown" size={20} /> <p>{stars}</p>
             </div>
           </div>
         </div>
