@@ -10,7 +10,7 @@ function Card({ store }) {
       className="group w-full min-h-[26rem] bg-zinc-900/50 hover:bg-zinc-900/90 border border-zinc-800/90 flex flex-col items-center justify-between rounded-4xl overflow-hidden p-3"
     >
       <div className="w-full h-full">
-        <div className="w-full bg-red-500 h-[16rem] rounded-[2rem] overflow-hidden transition">
+        <div className="w-full bg-red-500 h-[16rem] rounded-4xl overflow-hidden transition">
           <Image
             className="w-full h-full object-cover"
             width={520}

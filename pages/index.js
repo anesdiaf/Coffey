@@ -21,7 +21,7 @@ export default function Home(props) {
       </Head>
       <Banner/>
       <section id='stores' className='flex flex-col gap-y-4'>
-        <h2 className='text-6xl py-6 font-semibold text-center'>Coffee Stores</h2>
+        <h2 className='text-5xl md:text-6xl py-6 font-semibold text-center'>Coffee Stores</h2>
         <div className='w-full grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
           {coffeeStores.map((store) => (
             <Card store={store} key={store.id}/>

@@ -40,7 +40,6 @@ export const getStaticProps = async (ctx) => {
 };
 
 export default function CoffeeStore({ store, simStores }) {
-
   const router = useRouter();
   const { title, image, address, stars, description, reviews } = store;
 
@@ -50,17 +49,18 @@ export default function CoffeeStore({ store, simStores }) {
       {store && (
         <div className="w-full flex flex-col justify-center items-center gap-y-4">
           <Head>
-            <title>Coffey - {title}</title>
+            <title>{`Coffey - ${title}`}</title>
           </Head>
-          <div className="w-full flex justify-start space-x-2 text-zinc-500 border p-3 lg:px-6 rounded-3xl">
+          <div className="w-full flex justify-start space-x-2 bg-zinc-900/70 p-3 px-6 rounded-3xl">
             <Link className="hover:text-white" href="/">
               Home
             </Link>{" "}
-            <span>/</span> <p className="text-white">{title}</p>
+            <span>/</span> <p className="text-white font-medium">{title}</p>
           </div>
           <div className="w-full flex flex-col space-y-8">
-            <h1 className="text-4xl font-bold">{title}</h1>
-            <div className="w-full h-[35rem] rounded-3xl overflow-hidden border-2 border-zinc-800">
+            <div className="bg-zinc-900/70 rounded-3xl overflow-hidden">
+            <h1 className="text-4xl font-bold  p-6 rounded-3xl text-center">{title}</h1>
+            <div className="w-full h-[35rem] rounded-t-xl overflow-hidden border-2 border-zinc-800">
               <Image
                 className="w-full h-full object-cover object-center"
                 src={image}
@@ -70,35 +70,63 @@ export default function CoffeeStore({ store, simStores }) {
                 priority
               />
             </div>
+            </div>
             <div className="flex flex-col gap-6">
               <h1 className="text-3xl">Information</h1>
-              <div className="flex flex-col border rounded-3xl text-zinc-300/80">
-                <div className="flex flex-col lg:flex-row">
-                  <div className="flex gap-x-2 py-5 justify-center items-center w-full lg:w-1/2 h-full border-b lg:border-r">
-                    <MapPin className="text-brown" size={20} /> <p className="font-medium">{address}</p>
+              <div className="flex flex-col text-zinc-50/80 gap-5">
+
+                <div className="flex flex-col lg:flex-row gap-5">
+
+                  <div className="flex gap-x-2 py-5 justify-center items-center w-full lg:w-full h-full bg-zinc-900/70 rounded-3xl">
+                    <MapPin className="text-brown" size={20} />{" "}
+                    <p className="font-medium">{address}</p>
                   </div>
-                  <div className="flex gap-x-2 py-5 justify-center items-center h-full w-full lg:w-1/2">
-                    <Star className="text-brown" size={20} /> <p className="font-medium">{stars}</p>
+
+                  <div className="flex gap-x-2 py-5 px-6 justify-center items-center h-full bg-zinc-900/70 w-full lg:w-fit rounded-3xl">
+                    <Star className="text-brown" size={20} />{" "}
+                    <p className="font-medium">{stars}</p>
                   </div>
+
                 </div>
-                <div className="w-full p-7 border-t">
-                  <Info className="float-left mr-3 mb-3 text-brown"/>
-                  <p className="">{description}</p>
+
+                <div className="w-full p-7 bg-zinc-900/70 rounded-3xl">
+                  <Info className="float-left mr-3 mb-3 text-brown" />
+                  <p>{description}</p>
                 </div>
+
               </div>
             </div>
             <div className="flex flex-col gap-6">
               <h1 className="text-3xl">Reviews</h1>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-                {reviews.map((review) => (
-                  <div
-                    className="w-full flex flex-col space-y-4 bg-brown/80 rounded-3xl p-4"
-                    key={review.author}
-                  >
-                    <h5 className="text-lg font-medium">{review.author}</h5>
-                    <p className="text-zinc-50/80">{review.text}</p>
-                  </div>
-                ))}
+                {reviews.map((review) => {
+                  const colors = [
+                    "220, 38, 38",
+                    "22, 163, 74",
+                    "37, 99, 235",
+                    "217, 119, 6",
+                    "124, 58, 237",
+                    "5, 150, 105",
+                  ];
+                  const color = colors[Math.floor(Math.random() * 6)];
+                  return (
+                    <div
+                      className="w-full flex flex-col space-y-4 bg-zinc-900/70 rounded-3xl px-4 py-6"
+                      key={review.author}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <div
+                          className="h-7 w-7 rounded-full text-center flex justify-center items-center"
+                          style={{ backgroundColor: `rgba(${color}, 0.2)` , color: `rgb(${color})`}}
+                        >
+                          <p>{review.author.slice(0, 1)}</p>
+                        </div>
+                        <h5 className="text-lg font-medium">{review.author}</h5>
+                      </div>
+                      <p className="text-zinc-50/80">{review.text}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="flex flex-col space-y-6 py-6">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { Compass } from "lucide-react";
 
 export default function Banner() {
   const desc =
@@ -21,8 +22,9 @@ export default function Banner() {
           href="#stores"
           className="w-full"
         >
-          <button className="w-full py-3 text-center text-white bg-brown/70 lg:bg-brown backdrop-blur hover:bg-transparent border border-brown rounded-xl">
-            Explore
+          <button className="w-full py-3 text-center inline-flex justify-center items-center space-x-2 text-white bg-brown/70 lg:bg-brown backdrop-blur hover:bg-transparent border border-brown rounded-3xl">
+            <Compass size={24} strokeWidth={1.5}/>
+            <p>Explore</p>
           </button>
         </Link>
       </div>
